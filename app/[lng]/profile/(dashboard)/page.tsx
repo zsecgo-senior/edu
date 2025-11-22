@@ -61,7 +61,7 @@ async function Page({ params }: LngParams) {
 			/>
 			<div className='mt-4 grid grid-cols-2 gap-8 max-md:grid-cols-1'>
 				{cards
-					.map(card => (
+					.map((card: any) => (
 						<CreditCard key={card.id} card={JSON.parse(JSON.stringify(card))} />
 					))
 					.splice(0, 2)}
