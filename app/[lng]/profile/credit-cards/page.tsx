@@ -34,7 +34,7 @@ async function Page({ params }: LngParams) {
 
 			<div className='grid grid-cols-3 gap-4 max-md:grid-cols-1'>
 				<div className='mt-4 flex flex-col space-y-2 p-4'>
-					{cards.map(card => (
+					{cards.map((card: any) => (
 						<CreditCard key={card.id} card={JSON.parse(JSON.stringify(card))} />
 					))}
 					<AddPaymentMethod />
@@ -79,8 +79,10 @@ async function Page({ params }: LngParams) {
 								<TableCell colSpan={4}>{t('totals')}</TableCell>
 								<TableCell className='text-right'>
 									{(
-										payments.reduce((acc, payment) => acc + payment.amount, 0) /
-										100
+										payments.reduce(
+											(acc, payment: any) => acc + payment.amount,
+											0
+										) / 100
 									).toLocaleString('en-US', {
 										style: 'currency',
 										currency: 'USD',
